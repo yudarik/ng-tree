@@ -1,0 +1,33 @@
+<div class="tree">
+  <div class="root">
+    <button class="expand-collapse" (click)="toggleCollapse()">
+      <span [class]="{hidden: isExpanded}">+</span>
+      <span [class]="{hidden: !isExpanded}">-</span>
+    </button>
+    <span *ngIf="!editFormVisible && root" class="value">{{root.value}}</span>
+    <form [formGroup]="nodeEditForm" *ngIf="editFormVisible" class="edit-form form-horizontal">
+      <div class="form-control">
+        <input type="text" class="form-input" formControlName="value">
+      </div>
+    </form>
+    <button class="btn btn-default edit" (click)="editNode(root)">
+      <span [class]="{hidden: editFormVisible}">Edit</span>
+      <span [class]="{hidden: !editFormVisible}">Cancel</span>
+    </button>
+    <button [class]="{hidden: !editFormVisible}" (click)="updateNode()">Update</button>
+  </div>
+  <ul class="nodes" *ngIf="isExpanded">
+    <li *ngFor="let item of nodes" >
+      <tree [root]="item"></tree>
+    </li>
+    <li>
+      <form [formGroup]="nodeEditForm" *ngIf="newNodeFormVisible" class="edit-form form-horizontal">
+        <div class="form-control">
+          <input type="text" class="form-input" formControlName="value">
+        </div>
+      </form>
+      <button [class]="{hidden: newNodeFormVisible}" (click)="addNode()">Add new node</button>
+      <button [class]="{hidden: !newNodeFormVisible}" (click)="submitNode()">Submit</button>
+    </li>
+  </ul>
+</div>

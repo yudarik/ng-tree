@@ -1,0 +1,10 @@
+<ul *ngIf="parentNodes">
+  <li *ngFor="let node of parentNodes">
+    <tree [level]="3" [root]="node"></tree>
+  </li>
+</ul>
+<div *ngIf="!parentNodes">
+  No Tree nodes to display
+  <button (click)="loadData()">Load initial nodes</button>
+</div>
+

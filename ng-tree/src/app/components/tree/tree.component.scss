@@ -1,0 +1,32 @@
+.root {
+  display: block;
+  width: auto;
+  height: 24px;
+  clear: both;
+
+  .value {
+    margin: 0 10px;
+  }
+}
+ul.nodes {
+  > li {
+    margin: 2px auto;
+  }
+}
+button {
+  &.hidden {
+    display: none;
+  }
+  span {
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &.expand-collapse {
+    float: left;
+  }
+}
+form.edit-form {
+  float: left
+}
