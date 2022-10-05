@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TreeService} from './tree/tree.service';
 import {ITreeNode} from './tree/tree.component';
 
@@ -10,6 +10,7 @@ import {ITreeNode} from './tree/tree.component';
 })
 export class MainComponent implements OnInit {
 
+  @Input() level: number | undefined
   public parentNodes: ITreeNode[] | undefined;
 
   constructor(private service: TreeService) { }

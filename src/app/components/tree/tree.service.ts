@@ -14,8 +14,6 @@ export class TreeService {
   }
 
   loadDummyMockData(): Observable<any> {
-    dummyNodesData.filter(node => node)
-
     return this.dbService.bulkAdd(STORE_NAME, dummyNodesData.map(node => node));
   }
 

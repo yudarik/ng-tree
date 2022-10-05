@@ -1,6 +1,6 @@
-<ul *ngIf="parentNodes">
+<ul *ngIf="parentNodes && level && level > 0">
   <li *ngFor="let node of parentNodes">
-    <tree [level]="3" [root]="node"></tree>
+    <tree [level]="level ? level - 1 : level" [root]="node"></tree>
   </li>
 </ul>
 <div *ngIf="!parentNodes">
