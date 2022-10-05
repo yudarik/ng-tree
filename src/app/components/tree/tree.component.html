@@ -1,6 +1,6 @@
 <div class="tree">
   <div class="root">
-    <button class="expand-collapse" (click)="toggleCollapse()" *ngIf="level && level > 0">
+    <button class="expand-collapse" (click)="toggleCollapse()" *ngIf="level == undefined || level > 0">
       <span [class]="{hidden: isExpanded}">+</span>
       <span [class]="{hidden: !isExpanded}">-</span>
     </button>
@@ -16,7 +16,7 @@
     </button>
     <button [class]="{hidden: !editFormVisible}" (click)="updateNode()">Update</button>
   </div>
-  <ul class="nodes" *ngIf="isExpanded && level && level > 0">
+  <ul class="nodes" *ngIf="isExpanded && (level == undefined || level > 0)">
     <li *ngFor="let item of nodes" >
       <tree [root]="item" [level]="level ? level - 1 : level"></tree>
     </li>

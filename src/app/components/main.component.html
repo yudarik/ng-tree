@@ -1,4 +1,4 @@
-<ul *ngIf="parentNodes && level && level > 0">
+<ul *ngIf="parentNodes && (level == undefined || level > 0)">
   <li *ngFor="let node of parentNodes">
     <tree [level]="level ? level - 1 : level" [root]="node"></tree>
   </li>
